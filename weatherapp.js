@@ -1,5 +1,9 @@
 let searchBtn = document.getElementById("searchbtn");
 let searchBar = document.getElementById("searchbar");
+let temp;
+let weatherDescription;
+let maxTemp = document.getElementById("tempMax");
+let description = document.getElementById("description");
 searchbtn.addEventListener('click',()=>{
     let location = `${searchBar.value}`;
     console.log(location);
@@ -11,6 +15,11 @@ searchbtn.addEventListener('click',()=>{
         console.log(response);
         console.log(response.main.temp_max)
         console.log(response.weather[0].description)
+        temp = response.main.temp_max;
+        weatherDescription = response.weather[0].description;
+        maxTemp.innerHTML = temp;
+        description.innerHTML = weatherDescription;
+        
     })
     
 });
